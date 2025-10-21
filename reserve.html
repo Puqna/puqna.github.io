@@ -18,10 +18,16 @@
   src: url(/font/Snug\ FREE.ttf);
 }
 
+@media only screen and (min-width: 600px) {
+  .reservation-container {
+    border-radius: 25px;
+  }
+    
 @media (max-width: 600px) {
   .reservation-container {
     width: 90%;
     padding: 20px;
+    border-radius: 0px;
   }
 
   table {
@@ -60,7 +66,6 @@ body {
   background-color: #3E2723;
   width: 480px;
   padding: 30px 40px;
-  border-radius: 20px;
   box-shadow: 0 0 25px #d5c7b7; 
   transition: box-shadow 0.3s ease;
 }
@@ -490,4 +495,5 @@ table {
   });
 </script>
 </body>
+
 </html>
