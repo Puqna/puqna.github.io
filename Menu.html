@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/image/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="shortcut icon" href="/image/favicon_io/favicon.ico" type="image/x-icon">
+  <title>Sahabat Café | Menu</title>
+  <style>
+    @font-face {
+      font-family: Snug;
+      src: url(/font/Snug\ FREE.ttf);
+    }
+
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: rgba(46, 27, 23, 0.95);
+      color: #c8d4b9;
+      margin: 0;
+      padding-top: 0;
+      line-height: 1.8;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg opacity='0.08'%3E%3Cpath d='M20 20h24v20a4 4 0 01-4 4H24a4 4 0 01-4-4V20zm24 0h6a6 6 0 010 12h-6' stroke='%23c8d4b9' stroke-width='2' fill='none'/%3E%3Cpath d='M28 12c0 2-2 2-2 4s2 2 2 4M34 12c0 2-2 2-2 4s2 2 2 4' stroke='%23c8d4b9' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 64px 64px;
+    }
+
+    h1 {
+      font-family: Snug;
+      text-align: center;
+      font-size: 2.5em;
+      color: #c8d4b9;
+      margin-bottom: 35px;
+      letter-spacing: 1px;
+    }
+
+    .menu-section {
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #5d4037b7 0%, #4e342ea9 100%);
+      border-radius: 18px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      border: 1px solid #3e2723;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-section:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #c8d4b9;
+      border-bottom: 2px dashed #d7ccc8;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 1em;
+      margin: 10px 0;
+      border-bottom: 1px dashed #d7ccc8;
+      padding-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .menu-name {
+      flex: 1;
+      text-align: left;
+    }
+
+    .price-group {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .price {
+      font-weight: 600;
+      background-color: #4e342e;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      color: #c8d4b9;
+      white-space: nowrap;
+    }
+
+    @media screen and (max-width: 600px) {
+      body { padding: 20px; }
+      h1 { font-size: 2em; }
+      h2 { font-size: 1.3em; }
+      li { font-size: 0.95em; }
+      .price-group { flex-wrap: wrap; gap: 4px; }
+    }
+
+    .back-button-container {
+    text-align: left;         
+    margin: 20px 30px 10px 0;   
+}
+
+.back-button {
+    margin-left: 2.5%;
+    background-color: #4e342e62; 
+    color:#c8d4b9;
+    padding: 8px 16px ;        
+    text-decoration: none;
+    font-size: 0.9em;          
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    background-color: #422a1b; 
+}
+
+.arrow {
+  border: solid #c8d4b9;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+
+footer {
+    background-color: #321f1cc0;
+    color: #c8d4b9;
+    text-align: center;
+    padding: 2px 0;       
+    font-size: 15px;      
+}
+
+  </style>
+</head>
+<body>
+
+  <h3 class="back-button"><a href="index.html" style="text-decoration: none; color:#c8d4b9;"> <i class="arrow left"></i></a></h3>
+
+  <h1>Menu Sahabat Cafe</h1>
+
+  <!-- BEST SELLER -->
+  <div class="menu-section">
+    <h2>Sahabat Best Seller</h2>
+    <ul>
+      <li id="menu"><span class="menu-name">Berry Matcha Latte</span><span class="price-group"><span class="price">R: 25K</span><span class="price">L: 30K</span></span></li>
+      <li id="menu"><span class="menu-name">Americano</span><span class="price-group"><span class="price">R: 15K</span><span class="price">L: 18K</span></span></li>
+      <li id="menu"><span class="menu-name">Cappuccino</span><span class="price-group"><span class="price">R: 22K</span><span class="price">L: 27K</span></span></li>
+      <li id="menu"><span class="menu-name">Lychee Love</span><span class="price-group"><span class="price">L: 18K</span></span></li>
+      <li id="menu"><span class="menu-name">Pong Pong Latte</span><span class="price-group"><span class="price">L: 25K</span></span></li>
+      <li id="menu"><span class="menu-name">Mango Tree</span><span class="price-group"><span class="price">L: 25K</span></span></li>
+    </ul>
+  </div>
+
+  <!-- COFFEE -->
+  <div class="menu-section">
+    <h2>Coffee</h2>
+    <ul>
+      <li id="menu"><span class="menu-name">Espresso</span><span class="price-group"><span class="price">R: 15K</span></span></li>
+      <li id="menu"><span class="menu-name">Café Mocha</span><span class="price-group"><span class="price">R: 28K</span><span class="price">L: 33K</span></span></li>
+      <li id="menu"><span class="menu-name">Flat White</span><span class="price-group"><span class="price">R: 22K</span><span class="price">L: 27K</span></span></li>
+      <li id="menu"><span class="menu-name">Latte</span><span class="price-group"><span class="price">R: 22K</span><span class="price">L: 27K</span></span></li>
+      <li id="menu"><span class="menu-name">Latte (Vanilla / Caramel / Hazelnut)</span><span class="price-group"><span class="price">R: 25K</span><span class="price">L: 30K</span></span></li>
+      <li id="menu"><span class="menu-name">Dirty Chai</span><span class="price-group"><span class="price">R: 28K</span><span class="price">L: 33K</span></span></li>
+    </ul>
+  </div>
+
+  <!-- NON COFFEE -->
+  <div class="menu-section">
+    <h2>Non Coffee</h2>
+    <ul>
+      <li id="menu"><span class="menu-name">Chocolate Latte</span><span class="price-group"><span class="price">R: 25K</span><span class="price">L: 30K</span></span></li>
+      <li id="menu"><span class="menu-name">Strawberry Latte</span><span class="price-group"><span class="price">R: 25K</span><span class="price">L: 30K</span></span></li>
+      <li id="menu"><span class="menu-name">Matcha Latte</span><span class="price-group"><span class="price">R: 25K</span><span class="price">L: 30K</span></span></li>
+      <li id="menu"><span class="menu-name">Coconut Matcha</span><span class="price-group"><span class="price">R: 25K</span><span class="price">L: 30K</span></span></li>
+      <li id="menu"><span class="menu-name">Brown Sugar Milk Tea</span><span class="price-group"><span class="price">R: 25K</span><span class="price">L: 30K</span></span></li>
+      <li id="menu"><span class="menu-name">Earl Grey Milk Tea</span><span class="price-group"><span class="price">R: 20K</span><span class="price">L: 25K</span></span></li>
+      <li id="menu"><span class="menu-name">Thai Milk Tea</span><span class="price-group"><span class="price">R: 20K</span><span class="price">L: 25K</span></span></li>
+    </ul>
+  </div>
+
+  <!-- TEA -->
+  <div class="menu-section">
+    <h2>Tea</h2>
+    <ul>
+      <li id="menu"><span class="menu-name">Black Tea</span><span class="price-group"><span class="price">R: 15K</span></span></li>
+      <li id="menu"><span class="menu-name">Green Tea</span><span class="price-group"><span class="price">R: 15K</span></span></li>
+      <li id="menu"><span class="menu-name">Earl Grey</span><span class="price-group"><span class="price">R: 15K</span></span></li>
+      <li id="menu"><span class="menu-name">Chamomile</span><span class="price-group"><span class="price">R: 15K</span></span></li>
+      <li id="menu"><span class="menu-name">Peppermint</span><span class="price-group"><span class="price">R: 15K</span></span></li>
+      <li id="menu"><span class="menu-name">Hibiscus</span><span class="price-group"><span class="price">R: 15K</span></span></li>
+      <li id="menu"><span class="menu-name">Honey Lemon</span><span class="price-group"><span class="price">R: 24K</span></span></li>
+      <li id="menu"><span class="menu-name">Honey Ginger</span><span class="price-group"><span class="price">R: 24K</span></span></li>
+      <li id="menu"><span class="menu-name">Yuju Mint</span><span class="price-group"><span class="price">R: 24K</span></span></li>
+    </ul>
+  </div>
+
+<div class="menu-section">
+    <h2>Smoothies & Juice</h2>
+    <ul>
+      <li id="menu"><span class="menu-name">Plain Yogurt</span><span class="price-group"><span class="price">L: 25K</span></span></li>
+      <li id="menu"><span class="menu-name">Berry Yogurt</span><span class="price-group"><span class="price">L: 28K</span></span></li>
+      <li id="menu"><span class="menu-name">Berry Banana</span><span class="price-group"><span class="price">L: 28K</span></span></li>
+      <li id="menu"><span class="menu-name">Nana Avocado</span><span class="price-group"><span class="price">L: 35K</span></span></li>
+      <li id="menu"><span class="menu-name">Boost Green</span><span class="price-group"><span class="price">R: 28K</span></span></li>
+      <li id="menu"><span class="menu-name">ABC Juice</span><span class="price-group"><span class="price">R: 28K</span></span></li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h2>Smoothies & Juice</h2>
+    <ul>
+      <li id="menu"><span class="menu-name">A-Shot-Chu</span><span class="price-group"><span class="price">L: 20K</span></span></li>
+      <li id="menu"><span class="menu-name">Dalgona Latte</span><span class="price-group"><span class="price">L: 25K</span></span></li>
+    </ul>
+  </div>
+
+  <!-- SNACK -->
+  <div class="menu-section">
+    <h2>Brunch & Snack</h2>
+    <ul>
+      <li id="menu"><span class="menu-name">Sahabat Fries</span><span class="price-group"><span class="price">20K</span></span></li>
+      <li id="menu"><span class="menu-name">Classic Breakfast</span><span class="price-group"><span class="price">28K</span></span></li>
+      <li id="menu"><span class="menu-name">Sahabat Omurice</span><span class="price-group"><span class="price">30K</span></span></li>
+      <li id="menu"><span class="menu-name">Cheesy Bolognese</span><span class="price-group"><span class="price">38K</span></span></li>
+      <li id="menu"><span class="menu-name">Creamy Carbonara</span><span class="price-group"><span class="price">38K</span></span></li>
+    </ul>
+  </div>
+
+  <div class="menu-section">
+    <h2>House Baked</h2>
+    <ul>
+      <li id="menu"><span class="menu-name">Basque Cheesecake</span><span class="price-group"><span class="price">30K</span></span></li>
+      <li id="menu"><span class="menu-name">Matcha Cheesecake</span><span class="price-group"><span class="price">30K</span></span></li>
+      <li id="menu"><span class="menu-name">Tiramisu</span><span class="price-group"><span class="price">28K</span></span></li>
+      <li id="menu"><span class="menu-name">Sweet Bun</span><span class="price-group"><span class="price">18K</span></span></li>
+    </ul>
+  </div>
+
+  <!-- ADDITIONAL -->
+  <div class="menu-section">
+    <h2>Additional</h2>
+    <ul>
+      <li id="menu"><span class="menu-name">Extra Shot</span><span class="price-group"><span class="price">5K</span></span></li>
+      <li id="menu"><span class="menu-name">Milk Alternatives (Soy / Oat / Almond)</span><span class="price-group"><span class="price">5K</span></span></li>
+      <li id="menu"><span class="menu-name">Additional Syrup (Gula Aren / Vanilla / Caramel / Hazelnut) </span><span class="price-group"><span class="price">3K</span></span></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>© 2025 Global Lounge Sahabat — Crafted with love & premium beans.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/image/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="shortcut icon" href="/image/favicon_io/favicon.ico" type="image/x-icon">
+
+  <title>Sahabat Café | Table Reservation</title>
+  <style>
+
+@font-face {
+  font-family: Snug;
+  src: url(/font/Snug\ FREE.ttf);
+}
+
+@media (max-width: 600px) {
+  .reservation-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  table {
+    border-spacing: 6px;
+  }
+
+  label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') 
+              no-repeat center center fixed ;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reservation-container {
+  background-color: #3E2723;
+  width: 480px;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #d5c7b7; 
+  transition: box-shadow 0.3s ease;
+}
+
+.reservation-container:hover {
+  box-shadow: 0 0 35px #d5c7b7; 
+}
+
+
+h2.title {
+  font-family: Snug;
+  text-align: center;
+  color: #71a569;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+table {
+  width: 100%;
+  border-spacing: 10px;
+}
+
+label {
+  font-weight: 600;
+  color: #fff;
+  display: inline-block;
+  width: 150px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select,
+textarea {
+  background-color: #fffaf3;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 3px solid #330a01;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #3E2723;
+  box-shadow: 0 0 5px #d5c7b7 ;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 70px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.radio-option input[type="radio"] {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #71a569;
+  border-radius: 50%;
+  background-color: #fffaf3;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"]:checked {
+  border-color: #71a569;
+  background-color: #71a569;
+  box-shadow: 0 0 6px rgba(113, 165, 105, 0.6);
+}
+
+.radio-option input[type="radio"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+}
+
+.radio-option input[type="radio"]:checked::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.radio-option span {
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.radio-option input[type="radio"]:checked + span {
+  color: #71a569;
+}
+
+.radio-option input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #71a569; 
+  border-radius: 50%;
+  background-color: #fffaf3;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"]:checked {
+  background-color: #71a569;
+  box-shadow: 0 0 8px rgba(113, 165, 105, 0.7);
+}
+
+.radio-option span {
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.radio-option input[type="radio"]:checked + span {
+  color: #71a569; 
+}
+
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border: 3px solid #d5c7b7;
+  border-radius: 8px;
+  background-color: #fffaf3;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+}
+
+.checkbox-item:hover {
+  background-color: #f6efe4;
+  transform: scale(1.02);
+}
+
+.checkbox-item input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #3E2723;
+  border-radius: 6px;
+  margin-right: 10px;
+  position: relative;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.checkbox-item input[type="checkbox"]:checked {
+  background-color: #3E2723;
+  border-color: #3E2723;
+}
+
+.checkbox-item input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: #fff;
+  position: absolute;
+  font-size: 13px;
+  top: 1px;
+  left: 4px;
+}
+
+.checkbox-item span {
+  font-size: 15px;
+  color: #3a2a13;
+  flex: 1;
+  font-weight: 500;
+}
+
+select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 3px solid #cbb89f;
+  background: #fffaf3;
+  font-family: inherit;
+  font-size: 15px;
+  color: #3E2723;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  appearance: none;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, #3E2723 50%),
+                    linear-gradient(135deg, #3E2723 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% - 4px),
+                       calc(100% - 15px) calc(50% - 4px);
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+select:hover {
+  background-color: #f6efe4;
+  border-color: #3E2723;
+}
+
+select:focus {
+  outline: none;
+  border-color: #3E2723;
+  box-shadow: 0 0 6px rgba(46, 27, 23, 0.949);
+  background-color: #fffaf3;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #3E2723;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.select-wrapper.active::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #3E2723;
+  background: #fffaf3;
+  font-family: inherit;
+  font-size: 15px;
+  color: #3E2723;
+  cursor: pointer;
+  appearance: none; 
+}
+
+select:hover {
+  background-color: #f6efe4;
+  border-color: #3E2723;
+}
+
+select:focus {
+  outline: none;
+  border-color: #3E2723;
+  box-shadow: 0 0 6px rgba(46,27,23,0.949);
+  background-color: #fffaf3;
+}
+
+input[type="submit"] {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background-color: rgba(46, 27, 23, 0.949);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #330a01;
+}
+
+.reservation-container {
+  width: 380px;
+  margin: auto;
+  overflow: hidden; 
+  max-height: none; 
+}
+
+
+table {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="reservation-container">
+    <h2 class="title">Reserve Your Table!</h2>
+    <form class="reservation-form">
+      <table>
+        <tr>
+          <td><label for="fullname">Full Name:</label></td>
+          <td><input type="text" id="fullname" required></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td><input type="email" id="email" required></td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td><input type="password" id="password" required></td>
+        </tr>
+        <tr>
+          <td><label for="date">Date:</label></td>
+          <td><input type="date" id="date" required></td>
+        </tr>
+        <tr>
+          <td><label for="time">Time:</label></td>
+          <td><input type="time" id="time" required></td>
+        </tr>
+
+        <tr>
+  <td><label for="guests">Guests:</label></td>
+  <td>
+    <div class="radio-group" id="guests">
+      <label class="radio-option">
+        <input type="radio" name="guests" value="1 - 5" required>
+        <span>👥 1 – 5 Guests</span>
+      </label>
+      <label class="radio-option">
+        <input type="radio" name="guests" value="5 - 10">
+        <span>👨‍👩‍👧 5 – 10 Guests</span>
+      </label>
+      <label class="radio-option">
+        <input type="radio" name="guests" value="11 - 15">
+        <span>🎉 11 - 15 Guests </span>
+      </label>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td><label for="services">Services:</label></td>
+  <td>
+    <div class="checkbox-group" id="services">
+      <label class="checkbox-item">
+        <input type="checkbox" name="services" value="Birthday Cake">
+        <span>🎂 Birthday Cake</span>
+      </label>
+
+      <label class="checkbox-item">
+        <input type="checkbox" name="services" value="Table Decoration">
+        <span>🎀 Table Decoration</span>
+      </label>
+
+      <label class="checkbox-item">
+        <input type="checkbox" name="services" value="Live Music">
+        <span>🎵 Live Music</span>
+      </label>
+    </div>
+  </td>
+</tr>
+
+
+<tr>
+   <td><label for="table">Table Type:</label></td> 
+   <td> <div class="select-wrapper" id="selectWrapper"> 
+    <select id="table" name="table" required> 
+      <option value="">Select Table Type</option> 
+      <option value="Regular Table">🪑 Regular Table</option>
+       <option value="Window Seat">🌇 Window Seat</option> 
+       <option value="VIP Lounge">📚 Reading Corner</option> 
+      </select>
+       </div>
+      </td>
+     </tr>
+
+        <tr>
+          <td colspan="2"><input type="submit" value="Confirm Reservation"></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+<script>
+  document.querySelector(".reservation-form").addEventListener("submit", e => {
+    e.preventDefault();
+    document.querySelector(".reservation-container").innerHTML = `
+      <h2 class="title">Reservation Complete!</h2>
+      <p style="text-align:center; color:#fff; font-size:18px;">
+        Thank you for reserving a table at Sahabat Café.<br>
+        We look forward to serving you soon.
+      </p>
+      <div style="text-align:center; margin-top:25px;">
+        <button onclick="window.location.href='index.html'" 
+          style="background-color:#71a569; color:white; border:none; padding:12px 25px; border-radius:10px; cursor:pointer; font-size:16px; font-weight:bold; transition:0.5s;">
+          Back to Menu
+        </button>
+      </div>
+    `;
+  });
+</script>
+
+<script>
+  const selectWrapper = document.getElementById("selectWrapper");
+  const select = selectWrapper.querySelector("select");
+
+  select.addEventListener("mousedown", () => {
+    selectWrapper.classList.toggle("active");
+  });
+
+  select.addEventListener("blur", () => {
+    selectWrapper.classList.remove("active");
+  });
+</script>
+</body>
+</html>
